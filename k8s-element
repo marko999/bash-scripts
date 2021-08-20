@@ -1,6 +1,0 @@
-listcommand=$1 # command that list all of the elements
-searchterm=$2  # what is the name of the element we are looking for
-namespace=$3   # under which namespace
-action=$4      # what action we want to execute against this element(example: `describe pod`)
-
-kubectl $action $(kubectl $listcommand | grep $searchterm | awk 'FNR == 1 {print}' | awk '{print $2}') -n $namespace
